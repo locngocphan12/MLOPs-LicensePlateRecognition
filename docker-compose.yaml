@@ -220,6 +220,15 @@ services:
       - ./mlflow:/mlflow
     command: mlflow ui --host 0.0.0.0 --port 5000
     restart: unless-stopped
-  
+
+  yolov8-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: yolov8-api
+    ports:
+      - "8070:8070"
+    restart: always
+
 volumes:
   postgres-db-volume:
