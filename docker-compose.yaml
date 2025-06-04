@@ -229,11 +229,11 @@ services:
     container_name: yolov8-api
     ports:
       - "8070:8070"
+    volumes:
+      - ./shared:/app/shared
     depends_on:
       airflow-scheduler:
         condition: service_healthy
-    volumes:
-      - ./shared:/app/shared
     restart: always
 
 volumes:

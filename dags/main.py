@@ -152,7 +152,10 @@ with DAG(
         metadata = log_dataset_metadata("src/data.yaml")
         final_path = os.path.join("runs/detect", "best_model.pt")
         shared_path = "/app/shared/best_model.pt"
+
         # changed
+        shutil.copy(result["best_model"], final_path)
+
         shutil.copy(result["best_model"], shared_path)
 
         mlflow.set_tracking_uri(MLFLOW_URI)
