@@ -8,7 +8,7 @@ import io
 
 app = FastAPI()
 
-model = YOLO("/app/shared/best_model.pt")
+model = YOLO("best_model.pt")
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
